@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'contatore';
+  tot: number = 0;
+
+  onSum(n: HTMLInputElement): boolean{
+    this.tot += Number(n.value);
+    return false;
+  }
+  onSub(n: HTMLInputElement): boolean{
+    this.tot -= Number(n.value);
+    return false;
+  }
 }

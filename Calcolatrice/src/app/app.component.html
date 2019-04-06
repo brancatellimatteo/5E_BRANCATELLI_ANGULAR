@@ -1,0 +1,8 @@
+<h2>calcolatrice</h2>
+<form>
+	<input type=number #n1>
+    <input type=number #n2>
+    <button (click)="somma(n1,n2)">+</button>
+</form>
+<hr>
+<app-ris *ngIf="r" [ris] = "r" [n_vet]="num_vett"></app-ris>

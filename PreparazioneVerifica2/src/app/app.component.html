@@ -1,0 +1,10 @@
+<div class="form-group d-inline-block w-25">
+  <input type="text" class="form-control border-primary" id="number" name="number" #newNumber>
+</div>
+<span class="pl-3">Dimmi un numero</span>
+<button (click)="estrai(newNumber)" class="btn btn-primary d-block">Estrai</button>
+<br>
+<app-cartella [extractedNumber]="extractedNumber"></app-cartella>
+<ul class="list-inline">
+  <li class="list-inline-item mr-4 mt-4 border rounded p-1" *ngFor="let number of arrayNumbers">{{ number }}</li>
+</ul>

@@ -1,20 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <h1>Driving</h1>
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
+        Tipo:
+        <input type="text" class="form-control" [formControl]="myForm.controls['tipo']"><br>
+        <div *ngIf="!myForm.controls['tipo'].valid" class="alert alert-danger">Questo tipo non è valido</div>
+        <div *ngIf="myForm.controls['tipo'].hasError('required')" class="alert alert-danger">Il tipo è richiesto</div>
+        <br>
+        Descrizione:
+        <input type="text" class="form-control" [formControl]="myForm.controls['descrizione']"><br>
+        <div *ngIf="!myForm.controls['descrizione'].valid" class="alert alert-danger">Questa descrizione non è valida</div>
+        <div *ngIf="myForm.controls['descrizione'].hasError('required')" class="alert alert-danger">La descrizione è richiesta</div>
+        <br>
+        Tariffa:
+        <input type="text" class="form-control" [formControl]="myForm.controls['tariffa']"><br>
+        <div *ngIf="!myForm.controls['tariffa'].valid" class="alert alert-danger">Questa tariffa non è valida</div>
+        <div *ngIf="myForm.controls['tariffa'].hasError('required')" class="alert alert-danger">La tariffa è richiesta</div>
+        <br>
+         Valutazione Media:
+        <input type="number" class="form-control" [formControl]="myForm.controls['valutazioneMedia']"><br>
+        <div *ngIf="!myForm.controls['valutazioneMedia'].valid" class="alert alert-danger">Questa valutazione non è valida</div>
+        <div *ngIf="myForm.controls['valutazioneMedia'].hasError('required')" class="alert alert-danger">La valutazione è richiesta</div>       
+       
+        <div *ngIf="!myForm.valid" class="alert alert-danger">Il form non è valido</div>
+        <button class="btn btn-success btn-block" type="submit">Aggiungi</button>
+      </form>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-6">
+      <app-driving-list [mezzi]="mezzi"></app-driving-list>
+    </div>
+    <div class="col-sm-3">
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-

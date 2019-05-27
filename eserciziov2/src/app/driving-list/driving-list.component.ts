@@ -9,13 +9,13 @@ import { Mezzo } from '../driving.model';
 export class DrivingListComponent implements OnInit {
 
   @Input() mezzi;
-  mezzoSelezionato: Mezzo;
+  selectedVehicle: Mezzo;
   mezziNoleggiati: Mezzo[];
 
   constructor() { }
 
   onSelect(mezzo: Mezzo): void {
-    this.mezzoSelezionato = mezzo;
+    this.selectedVehicle = mezzo;
   }
 
   dettagli(mezzo:Mezzo): void{

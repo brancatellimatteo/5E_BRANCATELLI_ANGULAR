@@ -10,25 +10,28 @@ import { Mezzi } from './mock-driving';
 })
 export class AppComponent {
 
-  myForm: FormGroup;
   vehicles = Mezzi;
 
-  constructor(fb: FormBuilder) {
-    this.myForm = fb.group({'type': ['type', Validators.required], 'descr': ['descr', Validators.required], 'price': ['price', Validators.required], 'val': ['val', Validators.required]
-    });
+  constructor() {
   }
 
   ngOnInit(){
   }
 
-  onSubmit(value: string): void {
+ onClick(tipo: HTMLInputElement, descr:HTMLInputElement, tariffa:HTMLInputElement, valutazioneMedia:HTMLInputElement): boolean {
 
     let vehicle: Mezzo = new Mezzo();
-    vehicle.tipo = this.myForm.controls['type'].value;
-    vehicle.descrizione = this.myForm.controls['descr'].value;
-    vehicle.tariffa = this.myForm.controls['price'].value;
-    vehicle.valutazioneMedia = Number(this.myForm.controls['val'].value);
 
-    this.vehicles.push(vehicle);
+    vehicle.tipo = tipo.value;
+    vehicle.descrizione = descr.value;
+    vehicle.tariffa = tariffa.value;
+    vehicle.valutazioneMedia = Number(valutazioneMedia.value);
+    if(vehicle.tipo == '' || vehicle.descrizione == '' || vehicle.tariffa == ''){
+      alert('Inserisci i valori, il mezzo non verrà inserito');
+    }else{
+      this.vehicles.push(vehicle);
+    }
+
+    return false;
   }
 }

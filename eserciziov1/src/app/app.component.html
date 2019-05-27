@@ -6,19 +6,19 @@
       <h1>Vegetables</h1>
       <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)">
         Nome:
-        <input type="text" class="form-control" [formControl]="myForm.controls['nome']"><br>
-        <div *ngIf="!myForm.controls['nome'].valid" class="alert alert-danger">Questo nome non è valido</div>
-        <div *ngIf="myForm.controls['nome'].hasError('required')" class="alert alert-danger">Il nome è richiesto</div>
+        <input type="text" class="form-control" [formControl]="myForm.controls['name']"><br>
+        <div *ngIf="!myForm.controls['name'].valid" class="alert alert-danger">Questo nome non è valido</div>
+        <div *ngIf="myForm.controls['name'].hasError('required')" class="alert alert-danger">Il nome è richiesto</div>
         <br>
         Descrizione:
-        <input type="text" class="form-control" [formControl]="myForm.controls['descrizione']"><br>
-        <div *ngIf="!myForm.controls['descrizione'].valid" class="alert alert-danger">Questa descrizione non è valida</div>
-        <div *ngIf="myForm.controls['descrizione'].hasError('required')" class="alert alert-danger">La descrizione è richiesta</div>
+        <input type="text" class="form-control" [formControl]="myForm.controls['descr']"><br>
+        <div *ngIf="!myForm.controls['descr'].valid" class="alert alert-danger">Questa descrizione non è valida</div>
+        <div *ngIf="myForm.controls['descr'].hasError('required')" class="alert alert-danger">La descrizione è richiesta</div>
         <br>
         Prezzo:
-        <input type="text" class="form-control" [formControl]="myForm.controls['prezzo']"><br>
-        <div *ngIf="!myForm.controls['prezzo'].valid" class="alert alert-danger">Questo prezzo non è valido</div>
-        <div *ngIf="myForm.controls['prezzo'].hasError('required')" class="alert alert-danger">Il prezzo è richiesto</div>
+        <input type="text" class="form-control" [formControl]="myForm.controls['price']"><br>
+        <div *ngIf="!myForm.controls['price'].valid" class="alert alert-danger">Questo prezzo non è valido</div>
+        <div *ngIf="myForm.controls['price'].hasError('required')" class="alert alert-danger">Il prezzo è richiesto</div>
 
         <div *ngIf="!myForm.valid" class="alert alert-danger">Il form non è valido</div>
         <button class="btn btn-success btn-block" type="submit">Aggiungi</button>
@@ -32,7 +32,7 @@
     <div class="col-sm-3">
     </div>
     <div class="col-sm-6">
-      <app-vegetables-list [verdure]="verdure"></app-vegetables-list>
+      <app-vegetables-list [verdure]="vegs"></app-vegetables-list>
     </div>
     <div class="col-sm-3">
     </div>

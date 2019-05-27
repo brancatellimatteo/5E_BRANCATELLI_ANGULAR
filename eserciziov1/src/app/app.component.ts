@@ -11,10 +11,10 @@ import { Verdure } from './mock-veg';
 export class AppComponent {
 
   myForm: FormGroup;
-  verdure = Verdure;
+  vegs = Verdure;
 
   constructor(fb: FormBuilder) {
-    this.myForm = fb.group({'nome': ['nome', Validators.required], 'descrizione': ['descrizione', Validators.required], 'prezzo': ['prezzo', Validators.required]
+    this.myForm = fb.group({'name': ['name', Validators.required], 'descr': ['descr', Validators.required], 'price': ['price', Validators.required]
     });
   }
 
@@ -23,11 +23,14 @@ export class AppComponent {
 
   onSubmit(value: string): void {
 
-    let verdura: Verdura = new Verdura();
-    verdura.nome = this.myForm.controls['nome'].value;
-    verdura.descrizione = this.myForm.controls['descrizione'].value;
-    verdura.prezzo = this.myForm.controls['prezzo'].value;
-
-    this.verdure.push(verdura);
+    let veg: Verdura = new Verdura();
+    veg.nome = this.myForm.controls['name'].value;
+    veg.descrizione = this.myForm.controls['descr'].value;
+    veg.prezzo = this.myForm.controls['price'].value;
+    if(veg.nome == 'name' || veg.descrizione == 'descr' || veg.prezzo == 'price'){
+      alert('Cambia i valori, la verdura non verrà inserita');
+    }else{
+      this.vegs.push(veg);
+    }
   }
 }

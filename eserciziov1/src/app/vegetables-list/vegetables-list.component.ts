@@ -9,12 +9,12 @@ import { Verdura } from '../dvegetables.model';
 export class VegetablesListComponent implements OnInit {
 
   @Input() verdure;
-  verduraSelezionata: Verdura;
+  selectedVeg: Verdura;
 
   constructor() { }
 
   onSelect(verdura: Verdura): void {
-    this.verduraSelezionata = verdura;
+    this.selectedVeg = verdura;
   }
 
   dettaglioVerdura(verdura: Verdura): void{

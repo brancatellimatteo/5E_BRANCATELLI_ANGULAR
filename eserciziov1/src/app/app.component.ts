@@ -10,27 +10,24 @@ import { Verdure } from './mock-veg';
 })
 export class AppComponent {
 
-  myForm: FormGroup;
   vegs = Verdure;
 
-  constructor(fb: FormBuilder) {
-    this.myForm = fb.group({'name': ['name', Validators.required], 'descr': ['descr', Validators.required], 'price': ['price', Validators.required]
-    });
+  constructor() {
   }
 
   ngOnInit(){
   }
 
-  onSubmit(value: string): void {
-
+  onClick(nome: HTMLInputElement, descr:HTMLInputElement, prezzo:HTMLInputElement): boolean {
     let veg: Verdura = new Verdura();
-    veg.nome = this.myForm.controls['name'].value;
-    veg.descrizione = this.myForm.controls['descr'].value;
-    veg.prezzo = this.myForm.controls['price'].value;
-    if(veg.nome == 'name' || veg.descrizione == 'descr' || veg.prezzo == 'price'){
-      alert('Cambia i valori, la verdura non verrà inserita');
+    veg.nome = nome.value;
+    veg.descrizione = descr.value;
+    veg.prezzo = prezzo.value;
+    if(veg.nome == '' || veg.descrizione == '' || veg.prezzo == ''){
+      alert('Inserisci i valori, la verdura non verrà inserita');
     }else{
       this.vegs.push(veg);
     }
+    return false;
   }
 }

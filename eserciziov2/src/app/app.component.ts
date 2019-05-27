@@ -11,10 +11,10 @@ import { Mezzi } from './mock-driving';
 export class AppComponent {
 
   myForm: FormGroup;
-  mezzi = Mezzi;
+  vehicles = Mezzi;
 
   constructor(fb: FormBuilder) {
-    this.myForm = fb.group({'tipo': ['tipo', Validators.required], 'descrizione': ['descrizione', Validators.required], 'tariffa': ['tariffa', Validators.required], 'valutazioneMedia': ['valutazioneMedia', Validators.required]
+    this.myForm = fb.group({'type': ['type', Validators.required], 'descr': ['descr', Validators.required], 'price': ['price', Validators.required], 'val': ['val', Validators.required]
     });
   }
 
@@ -23,12 +23,12 @@ export class AppComponent {
 
   onSubmit(value: string): void {
 
-    let mezzo: Mezzo = new Mezzo();
-    mezzo.tipo = this.myForm.controls['tipo'].value;
-    mezzo.descrizione = this.myForm.controls['descrizione'].value;
-    mezzo.tariffa = this.myForm.controls['tariffa'].value;
-    mezzo.valutazioneMedia = Number(this.myForm.controls['valutazioneMedia'].value);
+    let vehicle: Mezzo = new Mezzo();
+    vehicle.tipo = this.myForm.controls['type'].value;
+    vehicle.descrizione = this.myForm.controls['descr'].value;
+    vehicle.tariffa = this.myForm.controls['price'].value;
+    vehicle.valutazioneMedia = Number(this.myForm.controls['val'].value);
 
-    this.mezzi.push(mezzo);
+    this.vehicles.push(vehicle);
   }
 }

@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <ul>
+      <li *ngFor="let verdura of verdure" [class.selected]="verdura === verduraSelezionata" (click)="onSelect(verdura)">{{verdura.nome}} &ensp; &ensp; <button class="btn btn-primary" (click)="dettaglioVerdura(verdura)">Compra</button></li>
+      <br>
+    </ul>
+  </div>
+  <div class="row">
+    <app-vegetable-detail *ngIf="verduraSelezionata" [verdura]="verduraSelezionata"></app-vegetable-detail>
+  </div>
+</div>
